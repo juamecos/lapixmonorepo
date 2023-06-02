@@ -17,6 +17,8 @@ export type RootStackParamList = {
   LoginScreen: undefined;
 };
 
+
+
 // **************** dummy data for authentication
 const status = 'authenticated';
 
