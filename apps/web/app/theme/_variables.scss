@@ -1,0 +1,66 @@
+
+@import './pallete';
+
+/*
+$primaryColor:
+$secondaryColor:
+$successColor: 
+$infoColor: 
+$warningColor: 
+$dangerColor:
+$lightColor: 
+$darkColor: 
+$whiteColor: 
+$blackColor: 
+*/
+
+// General Variables
+$borderRadius: 0.4rem;
+
+// Button variables
+$buttonBorderRadius: 0.4rem;
+$buttonPaddingVertical: 1rem;
+$buttonPaddingHorizontal: 1.6rem;
+$buttonHeight: auto;
+$buttonMinWidth: 6.4rem;
+$buttonBackgroundColor: $primaryColor;
+$buttonBorderWidth: 0.1rem;
+$buttonBorderColor: $primaryColor;
+$buttonElevation: 0.4rem;
+
+$buttonDisabledOpacity: 0.5;
+
+$buttonSolidBackgroundColor: $primaryColor;
+$buttonSolidDisabledBackgroundColor: $primaryColor;
+
+$buttonOutlineBorderColor: $primaryColor;
+$buttonOutlineDisabledBorderColor: $primaryColor;
+
+$buttonIconSize: 2.4rem;
+$buttonIconColor: $whiteColor;
+$buttonIconDisabledColor: $whiteColor;
+
+$buttonTitleFontSize: 1.6rem;
+$buttonTitleFontWeight: bold;
+$buttonTitleColor: $whiteColor;
+$buttonTitleLineHeight: 1.5;
+
+// Input variables
+
+
+$inputWidth: 100%;
+$inputHeight: 4.8rem;
+$inputPadding: 0 1.6rem; // Assuming 16px is equivalent to 1rem
+$inputBorderRadius: 0.4rem;
+$inputBorderColor: $gray4; // Assuming $inputBorderColor is defined in the palette
+$inputBackgroundColor: $gray1; // Assuming $inputBackgroundColor is defined in the palette
+$inputTextColor: $black; // Assuming $inputTextColor is defined in the palette
+$inputFontSize: 1.6rem;
+$inputFontFamily: "Roboto", sans-serif; // Example font family
+$inputTransitionDuration: 0.3s; // Example transition duration
+$inputTransitionTimingFunction: ease-in-out; 
+$inputPlaceholderTextColor: $gray5; 
+$inputDisabledOpacity: 0.5;
+$inputFocusedBorderColor: $primary; 
+$inputErrorBorderColor: $danger; 
+$inputErrorPlaceholderTextColor: $danger;

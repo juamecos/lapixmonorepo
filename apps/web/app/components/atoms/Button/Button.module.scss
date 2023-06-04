@@ -1,0 +1,79 @@
+// import variables.scss
+@import './../../../theme/variables.scss';
+
+.button {
+  align-items: center;
+  justify-content: center;
+  border-radius: $buttonBorderRadius;
+  padding-top: $buttonPaddingVertical;
+  padding-bottom: $buttonPaddingVertical;
+  padding-right: $buttonPaddingHorizontal;
+  padding-left: $buttonPaddingHorizontal;
+  height: $buttonHeight;
+  min-width: $buttonMinWidth;
+  overflow: hidden;
+  background-color: $buttonBackgroundColor;
+  border-width: $buttonBorderWidth;
+  border-color: $buttonBorderColor;
+
+  &:disabled {
+    opacity: $buttonDisabledOpacity;
+  }
+
+  &.solid {
+    background-color: $buttonSolidBackgroundColor;
+
+    &:disabled {
+      background-color: $buttonSolidDisabledBackgroundColor;
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    border-color: $buttonOutlineBorderColor;
+
+    &:disabled {
+      border-color: $buttonOutlineDisabledBorderColor;
+    }
+  }
+
+  &.clear {
+    background-color: transparent;
+
+    &:disabled {
+      opacity: 1;
+    }
+  }
+
+  &.icon {
+    padding-left: 0;
+    padding-right: 0;
+    width: $buttonIconSize;
+    height: $buttonIconSize;
+
+    .icon {
+      color: $buttonIconColor;
+    }
+
+    &:disabled {
+      .icon {
+        color: $buttonIconDisabledColor;
+      }
+    }
+  }
+
+  .title {
+    font-size: $buttonTitleFontSize;
+    font-weight: $buttonTitleFontWeight;
+    color: $buttonTitleColor;
+    text-align: center;
+    line-height: $buttonTitleLineHeight;
+  }
+}
+
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

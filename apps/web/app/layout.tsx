@@ -1,16 +1,44 @@
-import React from 'react';
-import styles from './page.module.scss';
+import './global.scss';
+import { Inter } from 'next/font/google';
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
+const inter = Inter({
+	subsets: ['latin'],
+});
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
-  return (
-    <div className={styles.container}>
-      <main>{children}</main>
-    </div>
-  );
+export const metadata = {
+	title: 'Lapixgame',
+	description: 'Lapixgame',
+	image: '',
+	url: 'https://lapixgame.com',
 };
 
-export default Layout;
+export default function RootLayout({
+	children,
+}: {
+	children: React.ReactNode,
+}) {
+	return (
+		<html lang='en'>
+			<head>
+				<meta charSet='utf-8' />
+				<meta name='description' content={metadata.description} />
+				<meta name='image' content={metadata.image} />
+				<meta name='viewport' content='width=device-width, initial-scale=1' />
+				<link rel='icon' href='/favicon.ico' />
+
+				<meta property='og:url' content={metadata.url} />
+				<meta property='og:type' content='website' />
+				<meta property='og:title' content={metadata.title} />
+				<meta property='og:description' content={metadata.description} />
+				<meta property='og:image' content={metadata.image} />
+
+				<meta name='twitter:card' content='summary_large_image' />
+				<meta name='twitter:title' content={metadata.title} />
+				<meta name='twitter:description' content={metadata.description} />
+				<meta name='twitter:image' content={metadata.image} />
+			</head>
+
+			<body>{children}</body>
+		</html>
+	);
+}

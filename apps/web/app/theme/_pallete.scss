@@ -1,0 +1,80 @@
+$white: #ffffff;
+$black: #000000;
+$red: #ff385c;
+$orange: #ff8c00;
+$yellow: #ffca3a;
+$green: #00c48c;
+$teal: #00b8d9;
+$blue: #0061ff;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$gray1: #f8f9fa;
+$gray2: #e9ecef;
+$gray3: #dee2e6;
+$gray4: #ced4da;
+$gray5: #adb5bd;
+$gray6: #6c757d;
+$gray7: #495057;
+$gray8: #343a40;
+$gray9: #212529;
+
+$primary: $blue;
+$secondary: $gray6;
+$success: $green;
+$info: $teal;
+$warning: $yellow;
+$danger: $red;
+$light: $gray1;
+$dark: $gray8;
+
+$theme-colors: (
+  "white": $white,
+  "black": $black,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "gray-1": $gray1,
+  "gray-2": $gray2,
+  "gray-3": $gray3,
+  "gray-4": $gray4,
+  "gray-5": $gray5,
+  "gray-6": $gray6,
+  "gray-7": $gray7,
+  "gray-8": $gray8,
+  "gray-9": $gray9
+);
+
+$grays: (
+  "100": $gray1,
+  "200": $gray2,
+  "300": $gray3,
+  "400": $gray4,
+  "500": $gray5,
+  "600": $gray6,
+  "700": $gray7,
+  "800": $gray8,
+  "900": $gray9
+);
+
+$theme-colors: map-merge($theme-colors, $grays);
+
+// This example shows how to use the theme colors in the theme styles.
+
+
+$primaryColor: map-get($theme-colors, "blue");
+$secondaryColor: map-get($theme-colors, "gray-6");
+$successColor: map-get($theme-colors, "green");
+$infoColor: map-get($theme-colors, "teal");
+$warningColor: map-get($theme-colors, "yellow");
+$dangerColor: map-get($theme-colors, "red");
+$lightColor: map-get($theme-colors, "gray-1");
+$darkColor: map-get($theme-colors, "gray-8");
+$whiteColor: map-get($theme-colors, "white");
+$blackColor: map-get($theme-colors, "black");

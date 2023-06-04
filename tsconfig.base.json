@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@lapix/shared": ["libs/shared/src/index.ts"]
+      "@lapix/shared": ["libs/shared/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]
