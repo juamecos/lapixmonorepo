@@ -3,9 +3,24 @@ import { TextProps as CustomTextProps } from './TextProps';
 import styles from './Text.module.scss';
 // import { color } from 'src/theme';
 
-const color = {
-	text: '#000000',
-};
+// Crea TSdoc para el componente
+/**
+ * This component is used to render text in the application.
+ * 
+ * @param h1 - Set the text as h1.
+ * @param h2 - Set the text as h2.
+ * @param h3 - Set the text as h3.
+ * @param h4 - Set the text as h4.
+ * @param h5 - Set the text as h5.
+ * @param p - Set the text as p.
+ * @param textClassName - Set the text class name.
+ * @param bold - Set the text as bold.
+ * @param italic - Set the text as italic.
+ * @param title - Set the text title.
+ * @param textColor - Set the text color.
+ * @param style - Set the text style.
+ * @returns {JSX.Element} 
+*/
 export default function Text({
 	h1,
 	h2,
@@ -17,7 +32,7 @@ export default function Text({
 	bold,
 	italic,
 	title,
-	textColor = color.text,
+	textColor = 'inherit',
 	style,
 	...rest
 }: CustomTextProps) {

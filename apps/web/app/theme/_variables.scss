@@ -1,55 +1,76 @@
 
 @import './pallete';
 
-/*
-$primaryColor:
-$secondaryColor:
-$successColor: 
-$infoColor: 
-$warningColor: 
-$dangerColor:
-$lightColor: 
-$darkColor: 
-$whiteColor: 
-$blackColor: 
-*/
+$color-map: (
+  primary: $primaryColor,
+  secondary: $secondaryColor,
+  danger: $dangerColor,
+  warning: $warningColor,
+  success: $successColor,
+  info: $infoColor,
+  light: $gray5,
+  dark: $darkColor
+);
 
 // General Variables
-$borderRadius: 0.4rem;
+// Borders
+$borderRadius: 0.5rem;
+// bourder radious in em units 
+$roundedBorderRadius: 100%;
+
+// Create variables scss for the component Container
+$containerWidth: 100%;
+$containerHeight: 100vh;
+$containerMaxWidth: 1200px;
+$containerMargin: 0 auto;
+$containerPadding: 0;
+$containerBackgroundColor: $lightColor;
+$containerBorder: 0.1rem solid $gray4;
+$containerBorderRadius: $borderRadius;
+$containerBoxShadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
 // Button variables
-$buttonBorderRadius: 0.4rem;
-$buttonPaddingVertical: 1rem;
+$buttonBorderRadius: $borderRadius;
+$buttonPaddingVertical: 0.6rem;
 $buttonPaddingHorizontal: 1.6rem;
-$buttonHeight: auto;
-$buttonMinWidth: 6.4rem;
+$buttonHeight: 4.8rem;
+$buttonMinWidth: 4.8rem;
 $buttonBackgroundColor: $primaryColor;
 $buttonBorderWidth: 0.1rem;
 $buttonBorderColor: $primaryColor;
-$buttonElevation: 0.4rem;
+
 
 $buttonDisabledOpacity: 0.5;
 
 $buttonSolidBackgroundColor: $primaryColor;
 $buttonSolidDisabledBackgroundColor: $primaryColor;
 
+$linearGradientButtonDarken: 7%;
+
+// Button Outline variables
 $buttonOutlineBorderColor: $primaryColor;
+$buttonOutlineBorderWidth: 0.1rem;
 $buttonOutlineDisabledBorderColor: $primaryColor;
 
-$buttonIconSize: 2.4rem;
+// Button Icon variables
+$buttonIconSize: 1.6rem;
 $buttonIconColor: $whiteColor;
 $buttonIconDisabledColor: $whiteColor;
 
-$buttonTitleFontSize: 1.6rem;
-$buttonTitleFontWeight: bold;
+// Button Title variables
+$buttonTitleFontSize: inherit;
+$buttonTitleFontWeight: normal;
 $buttonTitleColor: $whiteColor;
+$buttonTitleDisabledColor: $lightColor;
+$buttonTitleClearColor: inherit;
+
 $buttonTitleLineHeight: 1.5;
 
 // Input variables
 
 
 $inputWidth: 100%;
-$inputHeight: 4.8rem;
+$inputHeight: 2.8rem;
 $inputPadding: 0 1.6rem; // Assuming 16px is equivalent to 1rem
 $inputBorderRadius: 0.4rem;
 $inputBorderColor: $gray4; // Assuming $inputBorderColor is defined in the palette
@@ -64,3 +85,15 @@ $inputDisabledOpacity: 0.5;
 $inputFocusedBorderColor: $primary; 
 $inputErrorBorderColor: $danger; 
 $inputErrorPlaceholderTextColor: $danger;
+
+// Skeleton variables
+
+$skeletonBackgroundColor: $gray2;
+$skeletonColor: lightgray;
+$skeletonAnimationDuration: 0.8s;
+
+$skeletonBaseWidth: 10rem;
+$skeletonBaseHeight: 2rem;
+$skeletonBaseBorderRadius: $borderRadius;
+
+

@@ -1,14 +1,19 @@
 import React from "react";
 import { TextProps as CustomTextProps } from "../Text/TextProps";
-import Icon from "../Icon";
+import { VariantType } from '@lapix/shared';
 import IconProps from "../Icon/IconProps";
 
 
+
+
 export default interface ButtonProps {
-  title: string;
-  type?: 'solid' | 'outline' | 'clear';
-  icon?: keyof typeof Icon;
-  iconRight?: boolean;
+  title?: string;
+  rounded?: boolean;
+  type: 'solid' | 'outline' | 'clear';
+  variant: VariantType;
+  icon?: IconProps;
+	iconStyle?: React.CSSProperties
+  iconPosition?: 'left' | 'right' | 'top' | 'bottom';
   loading?: boolean;
   onClick?: () => void;
   disabled?: boolean;
@@ -18,8 +23,4 @@ export default interface ButtonProps {
   iconContainerStyle?: React.CSSProperties;
   disabledStyle?: React.CSSProperties;
   disabledTextStyle?: React.CSSProperties;
-  loadingStyle?: React.CSSProperties;
-  linearGradientProps?: any;
-  loadingProps?: any;
-  titleProps?: CustomTextProps;
 }

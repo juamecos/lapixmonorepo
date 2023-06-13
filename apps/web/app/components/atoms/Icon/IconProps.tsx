@@ -9,4 +9,5 @@ export default interface IconProps {
 	size?: 'small' | 'large';
 	color?: React.CSSProperties['color'];
 	style?: React.CSSProperties;
+	arialabel?: string;
 }

@@ -1,0 +1,57 @@
+
+@import './mixins';
+@import './variables';
+
+/*
+
+
+The element-style function in the given code is a Sass function that takes a $type parameter and returns a map of styles based on the value of $type. Here's what each section does:
+
+If $type is equal to "solid":
+
+Sets the color property to the value of $buttonTitleColor.
+Defines styles for each class name:
+.primary: Includes the linearGradient mixin with specific parameters.
+.secondary: Includes the linearGradient mixin with specific parameters.
+.danger: Includes the linearGradient mixin with specific parameters.
+.warning: Includes the linearGradient mixin with specific parameters.
+.success: Includes the linearGradient mixin with specific parameters.
+.info: Includes the linearGradient mixin with specific parameters.
+.light: Includes the linearGradient mixin with specific parameters and sets the color property to $gray5.
+.dark: Includes the linearGradient mixin with specific parameters.
+.disabled: Sets the background-color property to $buttonSolidDisabledBackgroundColor.
+If $type is equal to "outline":
+
+Sets the background-color property to transparent.
+Sets the border-width property to 1px.
+Sets the border-style property to solid.
+Defines styles for each class name:
+.primary: Includes the linearGradientBorder mixin with specific parameters and sets the color property to $primaryColor.
+.secondary: Includes the linearGradientBorder mixin with specific parameters and sets the color property to $secondaryColor.
+.danger: Includes the linearGradientBorder mixin with specific parameters and sets the color property to $dangerColor.
+.warning: Includes the linearGradientBorder mixin with specific parameters and sets the color property to $warningColor.
+.success: Includes the linearGradientBorder mixin with specific parameters and sets the color property to $successColor.
+.info: Includes the linearGradientBorder mixin with specific parameters and sets the color property to $infoColor.
+.light: Includes the linearGradientBorder mixin with specific parameters and sets the color property to $gray5.
+.dark: Includes the linearGradientBorder mixin with specific parameters and sets the color property to transparent.
+.disabled: Sets the border-color property to $buttonOutlineDisabledBorderColor.
+If $type is equal to "clear":
+
+Sets the background-color property to transparent.
+Sets the border property to 0 none.
+Sets the box-shadow property to none.
+Defines styles for each class name:
+.primary: Sets the color property to $primaryColor.
+.secondary: Sets the color property to $secondaryColor.
+.danger: Sets the color property to $dangerColor.
+.warning: Sets the color property to $warningColor.
+.success: Sets the color property to $successColor.
+.info: Sets the color property to $infoColor.
+.light: Sets the color property to $gray5.
+.dark: Sets the color property to $darkColor.
+.disabled: Sets the opacity property to $buttonDisabledOpacity.
+The function returns a map of styles based on the value of $type.
+
+*/
+
+

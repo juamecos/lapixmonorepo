@@ -21,9 +21,9 @@
 }
 
 // this example shows how to use the mixin
-.button {
-  @include button($color: #4CAF50, $background: white);
-}
+// .button {
+//   @include button($color: #4CAF50, $background: white);
+// }
 
 // This mixin allows you to write media queries easily by defining breakpoints and applying styles accordingly.
 
@@ -47,21 +47,21 @@ $breakpoints: (
 
 // this example shows how to use the mixin
 
-.container {
-  width: 100%;
-  @include respond-to(sm) {
-    width: 540px;
-  }
-  @include respond-to(md) {
-    width: 720px;
-  }
-  @include respond-to(lg) {
-    width: 960px;
-  }
-  @include respond-to(xl) {
-    width: 1140px;
-  }
-}
+// .container {
+//   width: 100%;
+//   @include respond-to(sm) {
+//     width: 540px;
+//   }
+//   @include respond-to(md) {
+//     width: 720px;
+//   }
+//   @include respond-to(lg) {
+//     width: 960px;
+//   }
+//   @include respond-to(xl) {
+//     width: 1140px;
+//   }
+// }
 
 // This mixin allows to create easily layouts with flexbox.
 
@@ -75,9 +75,9 @@ $breakpoints: (
 
 // this example shows how to use the mixin
 
-.container {
-  @include flexbox(row, space-between, center, wrap);
-}
+// .container {
+//   @include flexbox(row, space-between, center, wrap);
+// }
 
 // This mixin allows you to create animatiosn easily.
 
@@ -93,36 +93,50 @@ $breakpoints: (
 
 // this example shows how to use the mixin
 
-.container {
-  @include animation(name, 1s, 0s, ease, 1, normal, none);
-}
+// .container {
+//   @include animation(name, 1s, 0s, ease, 1, normal, none);
+// }
 
-// This mixin allows you to create shadows easily.
-
-@mixin shadow($x, $y, $blur, $spread, $color) {
-  box-shadow: $x $y $blur $spread $color;
-}
-
-// this example shows how to use the mixin
-
-.container {
-  @include shadow(0, 0, 10px, 0, rgba(0, 0, 0, 0.5));
-}
 
 // This mixin allows you to create gradients easily.
 
-@mixin gradient($direction, $color1, $color2) {
-  background: $color1;
-  background: -moz-linear-gradient($direction, $color1 0%, $color2 100%);
-  background: -webkit-linear-gradient($direction, $color1 0%, $color2 100%);
-  background: linear-gradient($direction, $color1 0%, $color2 100%);
+@mixin linearGradient($direction, $color) {
+  background: $color;
+  background: linear-gradient($direction, $color, darken($color, $linearGradientButtonDarken));
+  background: -moz-linear-gradient($direction, $color, darken($color, $linearGradientButtonDarken));
+  background: -webkit-linear-gradient($direction, $color, darken($color, $linearGradientButtonDarken));
 }
 
 // this example shows how to use the mixin
 
-.container {
-  @include gradient(to bottom, #000000, #ffffff);
+// .container { 
+//   @include linearGradient(to right, #4CAF50);
+// }
+
+// .container {
+//   @include linearGradient(45deg, #4CAF50);
+// }
+
+// This mixin allows to create easily linear gradient in border.
+/*
+
+ 
+
+*/
+
+@mixin linearGradientBorder($direction, $color) {
+  background: $color;
+  background: linear-gradient(#fff, #fff) padding-box,
+  linear-gradient($direction, $color, darken($color, 4%)) border-box;
+
 }
+
+// this example shows how to use the mixin
+
+// .container {
+//   @include linearGradientBorder(to right, #4CAF50);
+// }
+
 
 // This mixin allows you to create transitions easily.
 
@@ -132,9 +146,9 @@ $breakpoints: (
 
 // this example shows how to use the mixin
 
-.container {
-  @include transition(all, 0.5s, ease);
-}
+// .container {
+//   @include transition(all, 0.5s, ease);
+// }
 
 // This mixin allows you to create transforms easily.
 
@@ -144,9 +158,9 @@ $breakpoints: (
 
 // this example shows how to use the mixin
 
-.container {
-  @include transform(rotate, 30deg);
-}
+// .container {
+//   @include transform(rotate, 30deg);
+// }
 
 // this mixin allows you to create more flexible flexbox layouts
 
@@ -159,9 +173,9 @@ $breakpoints: (
 
 // this example shows how to use the mixin
 
-.container {
-  @include flex(row, center, center);
-}
+// .container {
+//   @include flex(row, center, center);
+// }
 
 // This mixin allows you to create more flexible flexbox column layouts
 @mixin flex-column {
@@ -170,9 +184,9 @@ $breakpoints: (
 
 // this example shows how to use the mixin
 
-.container {
-  @include flex-column;
-}
+// .container {
+//   @include flex-column;
+// }
 
 
 @mixin flex-center {
@@ -181,9 +195,9 @@ $breakpoints: (
 
 // this example shows how to use the mixin
 
-.container {
-  @include flex-center;
-}
+// .container {
+//   @include flex-center;
+// }
 
 
 @mixin flex-center-column {
@@ -197,5 +211,45 @@ $breakpoints: (
 @mixin flex-center-horiz {
   @include flex(null, center, center);
 }
+
+// Create mixin scss for the component Container
+
+@mixin container {
+  width: $containerWidth;
+  height: $containerHeight;
+  max-width: $containerMaxWidth;
+  margin: $containerMargin;
+  padding: $containerPadding;
+  background-color: $containerBackgroundColor;
+  border: $containerBorder;
+  border-radius: $containerBorderRadius;
+  box-shadow: $containerBoxShadow;
+}
+
+// mixin to generate color classes according to the variant color map
+/*
+$color-map: (
+  primary: $primaryColor,
+  secondary: $secondaryColor,
+  danger: $dangerColor,
+  warning: $warningColor,
+  success: $successColor,
+  info: $infoColor,
+  light: $gray5,
+  dark: $darkColor
+);
+*/
+
+
+@mixin color-classes($color-map) {
+  @each $color, $value in $color-map {
+    &.#{$color} {
+      color: $value;
+    }
+  }
+}
+
+
+
 
 

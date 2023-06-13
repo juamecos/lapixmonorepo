@@ -1,79 +1,184 @@
 // import variables.scss
-@import './../../../theme/variables.scss';
+@import './../../../theme/variables';
+@import './../../../theme/mixins';
+@import './../../../theme/pallete';
 
 .button {
-  align-items: center;
-  justify-content: center;
+
+  // Positioning
+  @include flex-center;
+
+  // Typography
   border-radius: $buttonBorderRadius;
+
+  // Spacing
   padding-top: $buttonPaddingVertical;
   padding-bottom: $buttonPaddingVertical;
   padding-right: $buttonPaddingHorizontal;
   padding-left: $buttonPaddingHorizontal;
+
+  // Size
   height: $buttonHeight;
   min-width: $buttonMinWidth;
-  overflow: hidden;
-  background-color: $buttonBackgroundColor;
-  border-width: $buttonBorderWidth;
-  border-color: $buttonBorderColor;
+  width: auto;
 
-  &:disabled {
+  // Overflow
+  overflow: hidden;
+
+  // Border
+  border-color: transparent;
+
+
+  // Shadow
+
+  box-shadow: 0 0.3rem 0.4rem rgba(0, 0, 0, 0.1);
+
+  // Cursor
+
+  cursor: pointer;
+
+  // hover effect opacity and scale
+  transition: all 0.2s ease-in-out;
+
+  .rounded {
+    border-radius: $roundedBorderRadius;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(1.01);
+  }
+
+
+  &.disabled {
     opacity: $buttonDisabledOpacity;
+    transform: none;
+    cursor: not-allowed;
   }
 
   &.solid {
-    background-color: $buttonSolidBackgroundColor;
+    color: $buttonTitleColor;
 
-    &:disabled {
+    &.primary {
+      @include linearGradient(30deg, $primaryColor);
+    }
+
+    &.secondary {
+      @include linearGradient(30deg, $secondaryColor);
+    }
+
+    &.danger {
+      @include linearGradient(30deg, $dangerColor);
+    }
+
+    &.warning {
+      @include linearGradient(30deg, $warningColor);
+    }
+
+    &.success {
+      @include linearGradient(30deg, $successColor);
+    }
+
+    &.info {
+      @include linearGradient(30deg, $infoColor);
+    }
+
+    &.light {
+      @include linearGradient(30deg, $lightColor);
+      color: $gray5;
+    }
+
+    &.dark {
+      @include linearGradient(30deg, $darkColor);
+    }
+
+
+    &.disabled {
       background-color: $buttonSolidDisabledBackgroundColor;
     }
   }
 
   &.outline {
     background-color: transparent;
-    border-color: $buttonOutlineBorderColor;
+    border-width: 1px;
+    border-style: solid;
 
-    &:disabled {
+    &.primary {
+      @include linearGradientBorder(to right, $primaryColor);
+      color: $primaryColor;
+    }
+
+    &.secondary {
+      @include linearGradientBorder(to right, $secondaryColor);
+      color: $secondaryColor;
+    }
+
+    &.danger {
+      @include linearGradientBorder(to right, $dangerColor);
+      color: $dangerColor;
+    }
+
+    &.warning {
+      @include linearGradientBorder(to right, $warningColor);
+      color: $warningColor;
+    }
+
+    &.success {
+      @include linearGradientBorder(to right, $successColor);
+      color: $successColor;
+    }
+
+    &.info {
+      @include linearGradientBorder(to right, $infoColor);
+      color: $infoColor;
+    }
+
+    &.light {
+      @include linearGradientBorder(to right, $gray5);
+      color: $gray5;
+    }
+
+    &.dark {
+      @include linearGradientBorder(to right, $darkColor);
+        color: 'transparent';
+    }
+
+    &.disabled {
       border-color: $buttonOutlineDisabledBorderColor;
     }
   }
 
   &.clear {
     background-color: transparent;
+    border: 0 none;
+    // no shadow in clear buttons
+    box-shadow: none;
 
-    &:disabled {
-      opacity: 1;
-    }
+    @include color-classes($color-map);
   }
 
-  &.icon {
-    padding-left: 0;
-    padding-right: 0;
-    width: $buttonIconSize;
-    height: $buttonIconSize;
+  &.loading {
+    pointer-events: none;
+  } 
 
-    .icon {
-      color: $buttonIconColor;
-    }
-
-    &:disabled {
-      .icon {
-        color: $buttonIconDisabledColor;
-      }
-    }
+  &.top {
+    flex-direction: column;
   }
 
-  .title {
-    font-size: $buttonTitleFontSize;
-    font-weight: $buttonTitleFontWeight;
-    color: $buttonTitleColor;
-    text-align: center;
-    line-height: $buttonTitleLineHeight;
+  &.bottom {
+    flex-direction: column-reverse;
+  }
+
+  &.left {
+    flex-direction: row;
+  }
+
+  &.right {
+    flex-direction: row-reverse;
   }
 }
 
-.loading-indicator {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+
+
+
+

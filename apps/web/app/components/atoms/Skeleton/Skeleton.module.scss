@@ -1,0 +1,28 @@
+// import variables.scss
+@import './../../../theme/variables';
+
+.skeleton {
+  width: $skeletonBaseWidth;
+  height: $skeletonBaseHeight;
+  background-color: $skeletonColor;
+  animation: skeletonAnimation $skeletonAnimationDuration infinite alternate;
+
+  &.circle {
+    border-radius: 50%;
+  }
+
+  &.rounded {
+    border-radius: $skeletonBaseBorderRadius;
+  }
+}
+
+@keyframes skeletonAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+

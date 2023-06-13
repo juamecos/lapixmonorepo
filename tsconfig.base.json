@@ -10,13 +10,27 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@lapix/shared": ["libs/shared/src/index.ts"],
+      "@lapix/libs/shared": [
+        "libs/libs/shared/src/index.ts"
+      ],
+      "@lapix/libs/shared/server": [
+        "libs/libs/shared/src/server.ts"
+      ],
+      "@lapix/shared": [
+        "libs/shared/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

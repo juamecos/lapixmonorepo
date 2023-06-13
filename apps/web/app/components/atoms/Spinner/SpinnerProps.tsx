@@ -4,13 +4,10 @@ type SpinnerDisplay = 'inline' | 'block';
 export default interface SpinnerProps {
 	size: SpinnerSize;
 	color?: string;
-	display: SpinnerDisplay;
+	display?: SpinnerDisplay;
+	addedStyles?: React.CSSProperties;
 }
 
-export const SpinnerDefaultProps: Partial<SpinnerProps> = {
-	size: 'medium',
-	color: '#FF5A5F',
-	display: 'block',
-  };
+
 
 

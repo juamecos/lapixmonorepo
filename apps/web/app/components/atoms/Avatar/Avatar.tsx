@@ -11,7 +11,7 @@ const defaultSource = 'https://i.pravatar.cc/150?u=fake@pravatar.com';
 export default function Avatar({
 	size = 'medium',
 	rounded,
-	source,
+	source = defaultSource,
 	title,
 	style,
 	onClick,
