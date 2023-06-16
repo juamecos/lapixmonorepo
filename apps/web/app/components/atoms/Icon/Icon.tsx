@@ -26,6 +26,7 @@ export default function Icon({
 	color = '#000000',
 	style,
 	arialabel,
+	onClick,
 }: IconProps) {
 	return (
 		<IonIcon
@@ -34,6 +35,7 @@ export default function Icon({
 			size={size}
 			style={{ ...style, color: color || undefined }}
 			aria-label={arialabel}
+			onClick={onClick}
 		/>
 	);
 }

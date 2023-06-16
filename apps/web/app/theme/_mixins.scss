@@ -31,8 +31,9 @@ $breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
-  lg: 992px,
-  xl: 1200px
+  lg: 950px,
+  xl: 1200px,
+  xxl: 1440px,
 );
 
 @mixin respond-to($breakpoint) {
@@ -44,6 +45,8 @@ $breakpoints: (
     @warn "Breakpoint #{$breakpoint} does not exist in $breakpoints";
   }
 }
+
+
 
 // this example shows how to use the mixin
 
@@ -63,66 +66,18 @@ $breakpoints: (
 //   }
 // }
 
-// This mixin allows to create easily layouts with flexbox.
-
-@mixin flexbox($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-  flex-wrap: $wrap;
+//
+@mixin grid-layout($columns) {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  // make that the rows have a heigh that fit content
+  grid-auto-rows: minmax(min-content, max-content);
+  // make the rows automatically generated
+  grid-auto-flow: dense;
 }
 
-// this example shows how to use the mixin
 
-// .container {
-//   @include flexbox(row, space-between, center, wrap);
-// }
-
-// This mixin allows you to create animatiosn easily.
-
-@mixin animation($name, $duration, $delay, $function, $count, $direction, $fill) {
-  animation-name: $name;
-  animation-duration: $duration;
-  animation-delay: $delay;
-  animation-timing-function: $function;
-  animation-iteration-count: $count;
-  animation-direction: $direction;
-  animation-fill-mode: $fill;
-}
-
-// this example shows how to use the mixin
-
-// .container {
-//   @include animation(name, 1s, 0s, ease, 1, normal, none);
-// }
-
-
-// This mixin allows you to create gradients easily.
-
-@mixin linearGradient($direction, $color) {
-  background: $color;
-  background: linear-gradient($direction, $color, darken($color, $linearGradientButtonDarken));
-  background: -moz-linear-gradient($direction, $color, darken($color, $linearGradientButtonDarken));
-  background: -webkit-linear-gradient($direction, $color, darken($color, $linearGradientButtonDarken));
-}
-
-// this example shows how to use the mixin
-
-// .container { 
-//   @include linearGradient(to right, #4CAF50);
-// }
-
-// .container {
-//   @include linearGradient(45deg, #4CAF50);
-// }
-
-// This mixin allows to create easily linear gradient in border.
-/*
-
- 
-
-*/
 
 @mixin linearGradientBorder($direction, $color) {
   background: $color;
@@ -212,6 +167,14 @@ $breakpoints: (
   @include flex(null, center, center);
 }
 
+@mixin flex-between {
+  @include flex(row, center, space-between);
+}
+
+@mixin flex-column-between {
+  @include flex(column, center, space-between);
+}
+
 // Create mixin scss for the component Container
 
 @mixin container {
@@ -248,6 +211,38 @@ $color-map: (
     }
   }
 }
+
+// this example shows how to use the mixin  
+
+// .container {
+//   @include color-classes($color-map);
+// }
+
+// mixin to generate pading horizontal
+
+@mixin padding-x($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+// this example shows how to use the mixin
+
+// .container {
+//   @include padding-x(10px);
+// }
+
+// mixin to generate pading vertical
+
+@mixin padding-y($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+// this example shows how to use the mixin
+
+// .container {
+//   @include padding-y(10px);
+// }
 
 
 

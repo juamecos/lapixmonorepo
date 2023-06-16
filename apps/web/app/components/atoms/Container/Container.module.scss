@@ -5,4 +5,25 @@
 
 .container {
   @include container;
+  @include grid-layout(1);
+
+  @include respond-to('sm') {
+    @include grid-layout(2);
+  }
+
+  @include respond-to('md') {
+    @include grid-layout(2);
+  }
+
+  @include respond-to('lg') {
+    @include grid-layout(3);
+  }
+
+  @include respond-to('xl') {
+    @include grid-layout(4);
+  }
+
+  @include respond-to('xxl') {
+    @include grid-layout(5);
+  }
 }

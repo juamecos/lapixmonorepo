@@ -1,5 +1,6 @@
 interface CardProps {
-  // Define las propiedades aquí
+	imageUrl: string;
+	alt: string;
 }
 
 export default CardProps;
