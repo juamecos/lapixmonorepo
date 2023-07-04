@@ -1,6 +1,29 @@
-.FAB {
-  /* Agrega estilos aquí */
-  height: 100px;
-  width: 100px;
-  background-color: #f0f0f0;
+@import './../../../theme/variables';
+@import './../../../theme/mixins';
+
+
+
+.FAB { 
+ position: fixed;
+ bottom: 5%;
+  right: 50%;
+  translate: 50% 0;
+  z-index: 1000;
+  // opacity: 0;
+  // visibility: hidden;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+ 
+  &.fadeIn {
+    animation-name: slide-in, fade-in;
+
+
+  }
+
+  &.fadeOut {
+    animation-name: fade-out, slide-out;
+  }
 }
+
+@include slideAnimation;
+@include fadeAnimation;

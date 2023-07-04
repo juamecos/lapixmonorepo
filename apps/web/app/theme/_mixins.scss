@@ -77,6 +77,13 @@ $breakpoints: (
   grid-auto-flow: dense;
 }
 
+// Mixin to make linearGradient
+
+@mixin linearGradient($direction, $color) {
+  background: $color;
+  background: linear-gradient($direction, $color, darken($color, 4%));
+}
+
 
 
 @mixin linearGradientBorder($direction, $color) {
@@ -171,8 +178,28 @@ $breakpoints: (
   @include flex(row, center, space-between);
 }
 
+@mixin flex-evenly {
+  @include flex(row, center, space-evenly);
+}
+
+@mixin flex-around {
+  @include flex(row, center, space-around);
+}
+
+@mixin flex-start {
+  @include flex(row, flex-start, center);
+}
+
 @mixin flex-column-between {
   @include flex(column, center, space-between);
+}
+
+@mixin flex-column-evenly {
+  @include flex(column, center, space-evenly);
+}
+
+@mixin flex-column-around {
+  @include flex(column, center, space-around);
 }
 
 // Create mixin scss for the component Container
@@ -242,6 +269,67 @@ $color-map: (
 
 // .container {
 //   @include padding-y(10px);
+// }
+
+
+// mixin to generate animation fade in fade out
+
+@mixin fadeAnimation() {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      visibility: hidden;
+    }
+    to {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      visibility: visible;
+    }
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+// this example shows how to use the mixin
+
+// .container {
+//   @include fadeAnimation(0.5s);
+// }
+
+// mixin to generate animation slide in slide out
+
+@mixin slideAnimation() {
+  @keyframes slide-in {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-out {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(100%);
+    }
+  }
+}
+
+// this example shows how to use the mixin
+
+// .container {
+//   @include slideAnimation(0.5s);
 // }
 
 

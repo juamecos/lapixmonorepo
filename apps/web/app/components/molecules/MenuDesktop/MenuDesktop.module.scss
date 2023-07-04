@@ -1,0 +1,37 @@
+@import './../../../theme/variables';
+@import './../../../theme/mixins';
+
+.MenuDesktop {
+  visibility: hidden;
+  display: none;
+  height: 8rem;
+
+  @include respond-to(md) {
+    visibility: visible;
+    @include flex-evenly;
+
+    .LogoContainer {
+      @include flex-start;
+    }
+    .links {
+     @include flex-between;
+      max-width: 60%;
+      height: 100%;
+      padding: 0 0 0 0;
+      margin: 0 0 0 0;
+      list-style: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      // color: $color-white;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+    .AvatarContainer {
+      @include flex-start;
+    }
+  }
+}

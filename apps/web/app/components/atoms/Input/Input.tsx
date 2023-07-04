@@ -1,6 +1,5 @@
-//this component is used to create input fields in the app and is used in the login and register screens of the app
-// will use a custom validation function to validate the input fields and will use the useState hook to store the input values
 'use client';
+
 import React, { useState } from 'react';
 
 import InputProps from './InputProps';
@@ -14,39 +13,40 @@ import Icon from '../Icon';
  * Renders an input component with optional label, error message, and customizable styles.
  *
  * @param label - (string) - Optional label for the input.
+ * @param name - (string) - Name of the input.
  * @param value - (string) - Value of the input.
  * @param onChangeText - (event: React.ChangeEvent<HTMLInputElement>) => void) - Function to handle text changes in the input.
  * @param placeholder - (string) - Placeholder text for the input.
- * @param secureTextEntry - (boolean) - Determines if the input should be masked for password entry.
+ * @param type - (boolean) - Type of input.
  * @param keyboardType - (string) - Type of keyboard to be displayed for the input.
  * @param autoCapitalize - (string) - Auto-capitalization behavior for the input.
  * @param autoCorrect - (boolean) - Determines if auto-correction should be enabled for the input.
  * @param containerStyle - (React.CSSProperties) - Additional styles for the container of the input component.
  * @param inputStyle - (React.CSSProperties) - Additional styles for the input element.
  * @param labelStyle - (React.CSSProperties) - Additional styles for the label element.
- * @param error - (string) - Error message to be displayed for the input.
+ * @param errorMessage - (string) - Error message to be displayed for the input.
  * @param errorStyle - (React.CSSProperties) - Additional styles for the error message.
  * @param rightIcon - (keyof typeof Icon) - Optional right icon for the input.
  * @param leftIcon - (keyof typeof Icon) - Optional left icon for the input.
  * @returns - (React.ReactNode) - The rendered input component.
  */
 
-//TODO add the right icon to the input field
-
 export default function Input({
 	label,
+	name,
 	value,
 	onChangeText,
 	placeholder,
-	secureTextEntry,
+	type,
 	keyboardType,
 	autoCapitalize,
 	autoCorrect,
 	containerStyle,
 	inputStyle,
 	labelStyle,
-	error,
+	errorMessage,
 	errorStyle,
+	isValid,
 	leftIcon,
 	rightIcon,
 	...props
@@ -60,7 +60,7 @@ export default function Input({
 	const labelClassName = [
 		styles.label,
 		isFocused && styles.focusedLabel,
-		error && styles.errorLabel,
+		errorMessage && styles.errorLabel,
 	].join(' ');
 
 	const renderLabel = () => {
@@ -80,36 +80,43 @@ export default function Input({
 	};
 
 	const renderError = () => {
-		if (error) {
-			return <Text p title={error} style={errorStyle} />;
+		if (errorMessage && !isValid) {
+			return <Text p title={errorMessage} style={errorStyle} textColor='red' />;
 		}
 
 		return null;
 	};
 
-	const inputClassName = [
-		styles.input,
-		isFocused && styles.focusedInput,
-		error && styles.errorInput,
+	const inputContainerClassName = [
+		styles.inputContainer,
+		isFocused && styles.focus,
+		errorMessage && styles.error,
+		isValid && styles.valid,
 	].join(' ');
 
 	return (
-		<div style={containerStyle}>
+		<div data-id={`input-${name}`} style={containerStyle}>
 			{renderLabel()}
-			<div className={styles.inputContainer}>
+			<div className={inputContainerClassName}>
 				{leftIcon && (
 					<div className={styles.leftIcon}>
-						<Icon name={leftIcon} />
+						<Icon
+							name={leftIcon}
+							size='large'
+							color='inherited'
+							style={{ fontSize: '1.1rem' }}
+						/>
 					</div>
 				)}
 				<input
-					className={inputClassName}
+					className={styles.input}
 					value={value}
+					name={name}
 					onChange={onChangeText}
 					onFocus={handleFocus}
 					onBlur={handleBlur}
 					placeholder={placeholder}
-					type={secureTextEntry ? 'password' : 'text'}
+					type={type}
 					style={inputStyle}
 					{...props}
 				/>
@@ -123,3 +130,5 @@ export default function Input({
 		</div>
 	);
 }
+
+// Create an Input component to be used with React Form Hook y la validación de path: libs\shared\src\utils\validation.ts

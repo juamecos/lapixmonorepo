@@ -1,3 +1,5 @@
+@import './theme/variables';
+@import './theme/mixins';
 
 :root {
   font-size: 62.5%;
@@ -17,6 +19,64 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.cluster div {
+  color: $primaryColor !important;
+  border: 1px solid $primaryColor !important;
+
+  & img {
+    background-color: $primaryColor !important;
+  }
+}
+
+.formContainer {
+  
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  @include respond-to(md) {
+    max-width: 600px;
+  }
+  
+  @include respond-to(lg) {
+    max-width: 800px;
+  }
+}
+
+.formContainer form {
+  @include flex-column;
+}
+
+.formContainer h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  
+  @include respond-to(md) {
+    flex-basis: 100%;
+    text-align: left;
+    margin-bottom: 0;
+  }
+}
+
+.formContainer input {
+  margin-bottom: 10px;
+  
+  @include respond-to(md) {
+    margin-right: 10px;
+  }
+}
+
+.formContainer button {
+  margin-top: 20px;
+  
+  @include respond-to(md) {
+    margin-top: 0;
+  }
 }
 
 

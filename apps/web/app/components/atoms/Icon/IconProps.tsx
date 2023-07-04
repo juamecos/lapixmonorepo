@@ -4,8 +4,10 @@ import Ionicons  from '@reacticons/ionicons';
 
 export type IoniconProps = typeof Ionicons;
 
+export type IconName = React.ComponentProps<typeof Ionicons>['name'];
+
 export default interface IconProps {
-	name: React.ComponentProps<typeof Ionicons>['name'];
+	name: IconName;
 	size?: 'small' | 'large';
 	color?: React.CSSProperties['color'];
 	style?: React.CSSProperties;

@@ -1,6 +1,9 @@
 import React from 'react';
+
 import ImageProps from './ImageProps';
 import styles from './Image.module.scss';
+
+import { default as NextImage } from 'next/image';
 
 const Image: React.FC<ImageProps> = ({
 	imageUrl,
@@ -12,7 +15,7 @@ const Image: React.FC<ImageProps> = ({
 		? styles.backgroundContainer
 		: styles.container;
 	const imageClass = isBackground ? styles.backgroundImage : styles.image;
-
+	// TODO Make Image background with children
 	return (
 		<div className={containerClass}>
 			{isBackground ? (
@@ -23,10 +26,11 @@ const Image: React.FC<ImageProps> = ({
 					aria-label={alt}
 				/>
 			) : (
-				<picture>
-					<source srcSet={imageUrl} type='image/webp' />
-					<img src={imageUrl} alt={alt} className={imageClass} />
-				</picture>
+				<NextImage
+					src={imageUrl}
+					alt={alt || `image - ${imageUrl}`}
+					className={imageClass}
+				/>
 			)}
 			{children && <div className={styles.overlayContent}>{children}</div>}
 		</div>

@@ -33,7 +33,7 @@ export default function Icon({
 			className='icon'
 			name={name}
 			size={size}
-			style={{ ...style, color: color || undefined }}
+			style={{ color: color || undefined, ...style }}
 			aria-label={arialabel}
 			onClick={onClick}
 		/>

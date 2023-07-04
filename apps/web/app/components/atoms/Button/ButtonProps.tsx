@@ -1,7 +1,7 @@
 import React from "react";
 import { TextProps as CustomTextProps } from "../Text/TextProps";
 import { VariantType } from '@lapix/shared';
-import IconProps from "../Icon/IconProps";
+import Icon from "../Icon";
 
 
 
@@ -11,11 +11,11 @@ export default interface ButtonProps {
   rounded?: boolean;
   type: 'solid' | 'outline' | 'clear';
   variant: VariantType;
-  icon?: IconProps;
+  icon?: typeof Icon;
 	iconStyle?: React.CSSProperties
   iconPosition?: 'left' | 'right' | 'top' | 'bottom';
   loading?: boolean;
-  onClick?: () => void;
+  onClick?: (() => void) | ((values: Record<string, any>) => void);
   disabled?: boolean;
   buttonStyle?: React.CSSProperties;
   containerStyle?: React.CSSProperties;

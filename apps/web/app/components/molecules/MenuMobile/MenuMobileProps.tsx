@@ -1,5 +1,8 @@
+import { linksType } from '../../../(pages)/page';
+
 interface MenuMobileProps {
-  // Define las propiedades aquí
+	links: linksType;
+	loggedIn: boolean;
 }
 
 export default MenuMobileProps;

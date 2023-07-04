@@ -1,25 +1,28 @@
-// This file is for the props of the Input component
 
-// import Icon Props
+// // import Icon Props
 import Icon from '../Icon';
+import { IconName } from '../Icon/IconProps';
 
 
 
 export default interface InputProps {
   label?: string;
+  name?: string;
   value?: string;
+  defaultValue?: string;
   onChangeText?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  secureTextEntry?: boolean;
+  type?: HTMLInputElement['type'];
   keyboardType?: string;
   autoCapitalize?: string;
   autoCorrect?: boolean;
   containerStyle?: React.CSSProperties;
   inputStyle?: React.CSSProperties;
   labelStyle?: React.CSSProperties;
-  error?: string;
+  errorMessage?: string;
   errorStyle?: React.CSSProperties;
-  leftIcon?: keyof typeof Icon;
-  rightIcon?: keyof typeof Icon;
+  isValid?: boolean;
+  leftIcon?: IconName;
+  rightIcon?: IconName;
 } 
 

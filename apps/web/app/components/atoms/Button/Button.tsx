@@ -9,6 +9,29 @@ import styles from './Button.module.scss';
 import Spinner from '../Spinner/Spinner';
 
 import Icon from '../Icon';
+// TSDocs stating if required
+/**
+ * Button component for the application that can be used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+ * @param title - The title of the button.
+ * @param rounded - If true, the button will be rounded.
+ * @param type - The type of the button.
+ * @param variant - The variant of the button.
+ * @param icon - The icon to be displayed on the button.
+ * @param iconPosition - The position of the icon on the button.
+ * @param loading - If true, the button will be in loading state.
+ * @param onClick - The function to be called when the button is clicked.
+ * @param disabled - If true, the button will be disabled.
+ * @param buttonStyle - The style of the button.
+ * @param containerStyle - The style of the container.
+ * @param textStyle - The style of the text.
+ * @param iconStyle - The style of the icon.
+ * @param iconContainerStyle - The style of the icon container.
+ * @param disabledStyle - The style of the button when it is disabled.
+ * @param disabledTextStyle - The style of the text when the button is disabled.
+ * @returns {JSX.Element} - The button component.
+ * @example
+ * <Button title='Button' rounded type='solid' variant='primary' />
+ */
 
 function Button({
 	title,
@@ -51,9 +74,9 @@ function Button({
 							...{
 								height: '1.5em',
 								width: '1.5em',
-								justifyContent: 'center',
-								alignItems: 'center',
-								display: 'flex',
+								// justifyContent: 'center',
+								// alignItems: 'center',
+								// display: 'flex',
 							},
 							...iconStyle,
 							...icon.style,

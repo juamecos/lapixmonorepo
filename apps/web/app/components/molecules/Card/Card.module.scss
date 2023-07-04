@@ -5,9 +5,8 @@
 
 .card {
   /* Agrega estilos aquí */
-  // min-height: 28rem;
   height: 100%;
-  // max-height: 100%;
+  max-height: 100%;
   min-width: 0;
   width: 100%;
   max-width: 100%;
@@ -25,8 +24,7 @@
 
   .content {
     display: grid;
-    grid-template-rows: 12.5% 1fr 12.5%;
-    min-height: 100%;
+    grid-template-rows: 1fr 6fr 1fr;
     height: 100%;
   }
 
@@ -34,16 +32,15 @@
   
   .header, .footer {
     min-height: 4.8rem;
-    width: 100%;
+    max-height: 4.8rem;
     @include flex-between;
-    @include padding-x(0.8rem);
+    @include padding-x(1.6rem);
     background-color: rgba(0, 0, 0, 0.3);
   } 
   
   .headerLeft {
     @include flex-center;
     gap: 1rem;
-    overflow: hidden;
   }
   .headerInfo {
     display: flex;
@@ -56,25 +53,17 @@
   
   
   .bodyContainer {
-    height: 100%;
+    flex: 1;
   }
 
   .footer {
-    justify-self: end;
-    align-self: self-end;
     margin-top: auto;
   }
  
-  .footerLeft {
-    height: 100%;
+  .footerLeft, .footerRight {
     @include flex-between;
     flex-grow: 1; 
   }
-  
-  .footerRight {
-    @include flex-between;
-    flex-grow: 1;
-  }  
 }
 
 

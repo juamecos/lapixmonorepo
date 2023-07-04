@@ -1,9 +1,8 @@
 import React from 'react';
-import Page from './page';
-
+import Page from './(pages)/page';
 
 function MyApp() {
-  return <Page />
+	return <Page />;
 }
 
 export default MyApp;

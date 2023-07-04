@@ -1,5 +1,11 @@
+import MenuDesktop from './components/molecules/MenuDesktop';
+import MenuMobile from './components/molecules/MenuMobile';
 import './global.scss';
 import { Inter } from 'next/font/google';
+
+import IconProps from './components/atoms/Icon/IconProps';
+import { icons } from 'libs/shared/src/constants/icons';
+import Menu from './components/organisms/Menu';
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -11,6 +17,23 @@ export const metadata = {
 	image: '',
 	url: 'https://lapixgame.com',
 };
+
+export type linksType = {
+	text: string,
+	icon: IconProps['name'],
+	link: string,
+	login: boolean,
+}[];
+
+export const links: linksType = [
+	{ text: 'Home', icon: icons.home, link: '#', login: false },
+	{ text: 'Favorites', icon: icons.favorites, link: '#', login: false },
+	{ text: 'Add', icon: icons.add, link: '#', login: true },
+	{ text: 'Notifications', icon: icons.notifications, link: '#', login: true },
+	{ text: 'Profile', icon: icons.profile, link: '#', login: false },
+];
+
+const loggedIn = true;
 
 export default function RootLayout({
 	children,
@@ -38,7 +61,11 @@ export default function RootLayout({
 				<meta name='twitter:image' content={metadata.image} />
 			</head>
 
-			<body>{children}</body>
+			<body>
+				<Menu links={links} loggedIn={loggedIn} />
+
+				{children}
+			</body>
 		</html>
 	);
 }
